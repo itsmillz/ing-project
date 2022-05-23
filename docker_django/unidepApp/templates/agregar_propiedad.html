@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block agregar_propiedad %}
+<div>
+    <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <section class="form-registro">
+            <p>Registro de las características de su propiedad</p>
+
+            <label class="formulario">Indique el sector donde se encuentra su propiedad:</label><br>
+            {{ nueva_propiedad.sector_propiedad }}
+            <label class="formulario">Indique la dirección de su propiedad:</label><br>
+            {{ nueva_propiedad.direccion }}
+
+            <label class="formulario">Ingrese el precio del arriendo:</label><br>
+            {{ nueva_propiedad.precio_arriendo }}
+            <label class="formulario">Indique si su propiedad es casa o departamento:</label><br>
+            {{ nueva_propiedad.tipo_propiedad }}
+            <label class="formulario">Ingrese cantidad de baño/s que posee su propiedad:</label><br>
+            {{ nueva_propiedad.cantidad_banos }}
+            <label class="formulario">Ingrese la cantidad de habitaciones que posee su propiedad:</label><br>
+            {{ nueva_propiedad.cantidad_habitaciones }}
+
+            <div class="opciones-extras">
+                <label class="formulario">Si su propiedad está amoblada, marque la casilla: </label><br>
+                {{ nueva_propiedad.amoblado }}
+            </div>
+
+            <div class="opciones-extras">
+                <label class="formulario">Si tiene estacionamiento, marque la casilla: </label><br>
+                {{ nueva_propiedad.estacionamiento }}
+            </div>
+
+            <div class="opciones-extras">
+                <label class="formulario">Si tiene servicio de limpieza, marque la casilla: </label><br>
+                {{ nueva_propiedad.servicio_aseo }}
+            </div>
+
+            <label class="formulario">Indique la cantidad de metros cuadrados de su propiedad:</label><br>
+            {{ nueva_propiedad.superficie_total }}
+            <label class="formulario">Por favor, ingrese el precio de los gastos comunes:</label><br>
+            {{ nueva_propiedad.gastos_comunes }}
+            <label class="formulario">Indique universidades cercanas a su propiedad:</label><br>
+            {{ nueva_propiedad.universidades_cercanas }}
+
+            <!-- ------------------------------------------- -->
+            <br><br><label class="formulario">Seleccione imagen de referencia de su propiedad: </label><br><br>
+
+            <input type="file" name="txtImagen" id="txtImagen">
+            {{ nueva_propiedad.imagen }}
+
+            <!-- ------------------------------------------- -->
+            <br><br><label class="formulario">Revise los datos antes de que sean enviados</label><br>
+            {{ nueva_propiedad.propietario }}
+            <button class="boton" type="submit">Publicar propiedad</button>
+        </section>
+    </form>
+</div>
+{% endblock %}

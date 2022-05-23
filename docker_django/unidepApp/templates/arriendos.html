@@ -1,0 +1,185 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block main_contenedor %}
+  <div class="segundo-container">
+    <h1>
+        <strong>¡Estudia cómodo y seguro!</strong>
+    </h1>
+    <h2 class="texto">Encuentra el alojamiento que necesitas en el lugar que necesitas</h2>
+    <div class="flexsearch">
+        <div class="flexsearch--wrapper">
+            <form class="flexsearch--form" method="GET">
+                <div class="flexsearch--input-wrapper">
+                    <input class="flexsearch--input" name="buscar" type="search"
+                        placeholder="Universidad: (Por favor, ingrese su universidad)">
+                </div>
+                <input class="flexsearch--submit" type="submit" value="&#10140;" />
+            </form>
+        </div>
+    </div>
+  </div>
+
+  <div class="tercer-contenedor">
+    <div class="listado-filtros">
+        <h1 class="titulo-filtro">Filtros</h1>
+        <h2 class="titulo-caracteristica-filtro">Universidades</h2>
+        <a href="{% url 'filtro-universidad' value=1 %}">Universidad del Bio Bio</a>
+        <a href="{% url 'filtro-universidad' value=2 %}">Universidad De La Santisima Concepcion</a>
+        <a href="{% url 'filtro-universidad' value=3 %}">Universidad San Sebastián</a>
+        <a href="{% url 'filtro-universidad' value=4 %}">Advance Universidad San Sebastián</a>
+        <a href="{% url 'filtro-universidad' value=5 %}">Universidad Diego Portales</a>
+        <a href="{% url 'filtro-universidad' value=6 %}">Universidad del Desarrollo</a>
+        <a href="{% url 'filtro-universidad' value=7 %}">Universidad del Pacífico</a>
+        <a href="{% url 'filtro-universidad' value=8 %}">Universidad Técnica Federico Santa María</a>
+        <a href="{% url 'filtro-universidad' value=9 %}">INACAP - Universidad Tecnológica de Chile</a>
+        <a href="{% url 'filtro-universidad' value=10 %}">INACAP - Universidad Andrés Bello</a>
+        <a href="{% url 'filtro-universidad' value=11 %}">Universidad Andrés Bello Postgrados</a>
+        <a href="{% url 'filtro-universidad' value=12 %}">Universidad Arcis - Concepción</a>
+        <a href="{% url 'filtro-universidad' value=13 %}">Universidad Santo Tomás</a>
+        <a href="{% url 'filtro-universidad' value=14 %}">DUOC UC</a>
+        <a href="{% url 'filtro-universidad' value=15 %}">Instituto Profesional DUOC UC</a>
+        <a href="{% url 'filtro-universidad' value=16 %}">Universidad del Desarrollo</a>
+        <a href="{% url 'filtro-universidad' value=17 %}">Educacion Ejecutiva - Facultad de Economía y Negocios - UDD (Universidad del Desarrollo)</a>
+        <a href="{% url 'filtro-universidad' value=18 %}">Universidad de Concepcion</a>
+        <h2 class="titulo-caracteristica-filtro">Precio arriendo</h2>
+        <a href="{% url 'precio-arriendo' value2=20 %}">$80000 a $150000</a>
+        <a href="{% url 'precio-arriendo' value2=21 %}">$150000 a $250000</a>
+        <a href="{% url 'precio-arriendo' value2=22 %}">$250000 a $350000</a>
+        <a href="{% url 'precio-arriendo' value2=23 %}">$350000 a $450000</a>
+        <h2 class="titulo-caracteristica-filtro">Gastos comunes</h2>
+        <a href="">$3000 o menos</a>
+        <a href="">$3000 a $10000</a>
+        <a href="">$10000 o más</a>
+        <h2 class="titulo-caracteristica-filtro">Dormitorios</h2>
+        <a href="{% url 'dormitorios-arriendo' value3=30 %}">1 dormitorio</a>
+        <a href="{% url 'dormitorios-arriendo' value3=31 %}">2 dormitorios</a>
+        <a href="{% url 'dormitorios-arriendo' value3=32 %}">3 dormitorios</a>
+        <a href="{% url 'dormitorios-arriendo' value3=33 %}">4 dormitorios</a>
+        <a href="{% url 'dormitorios-arriendo' value3=34 %}">5 dormitorios o más</a>
+        <h2 class="titulo-caracteristica-filtro">Baños</h2>
+        <a href="">1 baño</a>
+        <a href="">2 baños</a>
+        <a href="">3 baños</a>
+        <a href="">4 baños</a>
+        <a href="">5 baños o más</a>
+        <h2 class="titulo-caracteristica-filtro">Superfice total</h2>
+        <a href="">45 m<sup>2</sup> o menos</a>
+        <a href="">45 m<sup>2</sup> a 65 m<sup>2</sup></a>
+        <a href="">65 m<sup>2</sup> o más</a>
+        <h2 class="titulo-caracteristica-filtro">Estacionamiento</h2>
+        <a href="">Con estacionamiento</a>
+        <a href="">Sin estacionamiento</a>
+    </div>
+    <div class="listado-propiedades">
+        {% if filtrar_lista %}
+        {% for propiedad in filtrar_lista %}
+            <div class="depto">
+                <div class="dep-1">
+                    {% if propiedad.imagen %}
+                    <img src="{{ propiedad.imagen.url }}" alt="">
+                    {% endif %}
+                </div>
+                <div class="dep-2">
+                    <p class="sector-propiedad">{{ propiedad.universidades_cercanas }}</p>
+                    <h2 class="direccion-propiedad">{{ propiedad.direccion }}</h2>
+                    <div class="dep-22">
+                        <p>Tipo propiedad: {{ propiedad.tipo_propiedad }}</p>
+                        <p>Superficie total: {{ propiedad.superficie_total }}</p>
+                        <p>Gastos comunes: {{ propiedad.gastos_comunes }}</p>
+                        {% if propiedad.amoblado %}
+                            <p>Amoblado: Si</p>
+                        {% else %}
+                            <p>Amoblado: No</p>
+                        {% endif %}
+                        {% if propiedad.estacionamiento %}
+                            <p>Estacionamiento: Si</p>
+                        {% else %}
+                            <p>Estacionamiento: No</p>
+                        {% endif %}
+                        {% if propiedad.servicio_aseo %}
+                            <p>Servicio de aseo: Si</p>
+                        {% else %}
+                            <p>Servicio de aseo: No</p>
+                        {% endif %}
+                    </div>
+                    <div class="dep-23">
+                        <p class="precio-arriendo">${{ propiedad.precio_arriendo }} CLP</p>
+                        <hr style="color: rgb(127, 77, 16);">
+                        <div class="contenedor-rate">
+                            <div class="accesorios">
+                                    <!-- Imagenes de caracts de depto/propiedad -->
+                                <figure>
+                                    <img src="{% static 'img/dormitorio.png' %}" alt="Trulli">
+                                    <figcaption class="caracteristicas-extras"©>{{ propiedad.cantidad_habitaciones }} dorm</figcaption>
+                                </figure>
+                                <figure>
+                                    <img src="{% static 'img/banera.png' %}" alt="Trulli">
+                                    <figcaption class="caracteristicas-extras">{{ propiedad.cantidad_banos }} baño</figcaption>
+                                </figure>
+                            </div>
+                            <div class="puntuacion">
+                                <img src="{% static 'img/estrella.png' %}" alt="">
+                                <p class="calificacion-num">4.7</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+        {% else %}
+            {% for propiedad in listado_propiedades %}
+            <div class="depto">
+                <div class="dep-1">
+                    <img src="{% static 'img/alquiler.jpg' %}" alt="">
+                </div>
+                <div class="dep-2">
+                    <p class="sector-propiedad">{{ propiedad.universidades_cercanas }}</p>
+                    <h2 class="direccion-propiedad">{{ propiedad.direccion }}</h2>
+                    <div class="dep-22">
+                        <p>Tipo propiedad: {{ propiedad.tipo_propiedad }}</p>
+                        <p>Superficie total: {{ propiedad.superficie_total }}</p>
+                        <p>Gastos comunes: {{ propiedad.gastos_comunes }}</p>
+                        {% if propiedad.amoblado %}
+                            <p>Amoblado: Si</p>
+                        {% else %}
+                            <p>Amoblado: No</p>
+                        {% endif %}
+                        {% if propiedad.estacionamiento %}
+                            <p>Estacionamiento: Si</p>
+                        {% else %}
+                            <p>Estacionamiento: No</p>
+                        {% endif %}
+                        {% if propiedad.servicio_aseo %}
+                            <p>Servicio de aseo: Si</p>
+                        {% else %}
+                            <p>Servicio de aseo: No</p>
+                        {% endif %}
+                    </div>
+                    <div class="dep-23">
+                        <p class="precio-arriendo">${{ propiedad.precio_arriendo }} CLP</p>
+                        <hr style="color: rgb(127, 77, 16);">
+                        <div class="contenedor-rate">
+                            <div class="accesorios">
+                                    <!-- Imagenes de caracts de depto/propiedad -->
+                                <figure>
+                                    <img src="{% static 'img/dormitorio.png' %}" alt="Trulli">
+                                    <figcaption class="caracteristicas-extras"©>{{ propiedad.cantidad_habitaciones }} dorm</figcaption>
+                                </figure>
+                                <figure>
+                                    <img src="{% static 'img/banera.png' %}" alt="Trulli">
+                                    <figcaption class="caracteristicas-extras">{{ propiedad.cantidad_banos }} baño</figcaption>
+                                </figure>
+                            </div>
+                            <div class="puntuacion">
+                                <img src="{% static 'img/estrella.png' %}" alt="">
+                                <p class="calificacion-num">4.7</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block listado_propiedades %}
+
+  {% for propiedad in universidades %}
+  <div class="depto" style="width:1300px; margin: 0 auto; margin-top:30px;">
+      <div class="dep-1">
+          <img src="{% static 'img/alquiler.jpg' %}" alt="">
+      </div>
+      <div class="dep-2">
+          <p class="sector-propiedad">{{ propiedad.universidades_cercanas }}</p>
+          <h2 class="direccion-propiedad">{{ propiedad.direccion }}</h2>
+          <div class="dep-22">
+              <p>Tipo propiedad: {{ propiedad.tipo_propiedad }}</p>
+              <p>Superficie total: {{ propiedad.superficie_total }}</p>
+              <p>Gastos comunes: {{ propiedad.gastos_comunes }}</p>
+              {% if propiedad.amoblado %}
+                  <p>Amoblado: Si</p>
+              {% else %}
+                  <p>Amoblado: No</p>
+              {% endif %}
+              {% if propiedad.estacionamiento %}
+                  <p>Estacionamiento: Si</p>
+              {% else %}
+                  <p>Estacionamiento: No</p>
+              {% endif %}
+              {% if propiedad.servicio_aseo %}
+                  <p>Servicio de aseo: Si</p>
+              {% else %}
+                  <p>Servicio de aseo: No</p>
+              {% endif %}
+          </div>
+          <div class="dep-23">
+              <p class="precio-arriendo">${{ propiedad.precio_arriendo }} CLP</p>
+              <hr style="color: rgb(127, 77, 16);">
+              <div class="contenedor-rate">
+                  <div class="accesorios">
+                          <!-- Imagenes de caracts de depto/propiedad -->
+                      <figure>
+                          <img src="{% static 'img/dormitorio.png' %}" alt="Trulli">
+                          <figcaption class="caracteristicas-extras"©>{{ propiedad.cantidad_habitaciones }} dorm</figcaption>
+                      </figure>
+                      <figure>
+                          <img src="{% static 'img/banera.png' %}" alt="Trulli">
+                          <figcaption class="caracteristicas-extras">{{ propiedad.cantidad_banos }} baño</figcaption>
+                      </figure>
+                  </div>
+                  <div class="puntuacion">
+                      <img src="{% static 'img/estrella.png' %}" alt="">
+                      <p class="calificacion-num">4.7</p>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  {% endfor %}
+{% endblock %}

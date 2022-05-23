@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UniDep</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+</head>
+
+<body>
+    <div class="main-container">
+        <header id="main-header">
+            <div class="img-container">
+                <img src="{% static 'img/UniDep.jpg' %}" alt="">
+            </div>
+            <nav class="navegacion">
+                <ul class="ul">
+                    <img src="{% static 'img/perfil-del-usuario.png' %}" alt="">
+                    <li><a href="{% url 'agregar' %}"><button>Publicar propiedad</button></a></li>
+                </ul>
+            </nav>
+        </header>
+        {% block main_contenedor %}
+        
+        {% endblock %}
+        {% block agregar_propiedad %}
+
+        {% endblock %}
+        {% block listado_propiedades %}
+
+        {% endblock %}
+    </div>
+</body>
+
+</html>
