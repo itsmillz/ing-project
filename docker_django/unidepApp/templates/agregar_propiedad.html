@@ -2,7 +2,14 @@
 {% load static %}
 {% block agregar_propiedad %}
 <div>
-    <form action="" method="POST" enctype="multipart/form-data">
+    
+    {% if mensaje_precio %}
+        <div>
+            <h2>{{ mensaje_precio }}</h2>
+        </div>
+    {% endif %}
+
+    <form action="" method="post" enctype="multipart/form-data">
         {% csrf_token %}
         <section class="form-registro">
             <p>Registro de las características de su propiedad</p>
@@ -45,8 +52,11 @@
 
             <!-- ------------------------------------------- -->
             <br><br><label class="formulario">Seleccione imagen de referencia de su propiedad: </label><br><br>
-
+            
             <input type="file" name="txtImagen" id="txtImagen">
+            {{ nueva_propiedad.imagen }}
+            <br><br>
+            <input type="file" name="txtImagen2" id="txtImagen2">
             {{ nueva_propiedad.imagen }}
 
             <!-- ------------------------------------------- -->

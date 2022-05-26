@@ -26,7 +26,7 @@ SECRET_KEY = 'blg6c&mdq8+ehlx+f)z1ejz&4z9oi5s8bjt-kp6=!1m2vbdomj'
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
-
+MESSAGE_STORAGE = "django.contrib.messages.storage.cookie.CookieStorage"
 
 # Application definition
 
@@ -123,5 +123,5 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 STATIC_ROOT = '/code/static/'

@@ -3,7 +3,7 @@ from .forms import FormPropiedad
 from django.db.models import Q
 from django.shortcuts import get_object_or_404
 from .models import Propietario, Propiedad
-
+from django.contrib import messages
 # Create your views here.
 def index(request):
     listado_propiedades = Propiedad.objects.all().order_by("-id")
@@ -21,17 +21,25 @@ def agregar_propiedad(request):
     propietario_defecto = get_object_or_404(Propietario, pk=1)
     request.propietario = propietario_defecto
     casa_imagen = request.FILES.get('txtImagen')
+    casa_imagen2 = request.FILES.get('txtImagen2')
+    mensaje_precio = ""
     if request.method == 'POST':
+
+        if int(request.POST.get('precio_arriendo')) <= 0:
+            mensaje_precio = "Ingrese un precio mayor a 0."
+        
+        
         form = FormPropiedad(request.POST)
         if form.is_valid():
             nueva_propiedad = form.save(commit=False)
+            nueva_propiedad.imagen = casa_imagen
             nueva_propiedad.save()
             return redirect('index')
         else:
             form = FormPropiedad()
     else:
         form = FormPropiedad()
-    return render(request, 'agregar_propiedad.html', {'nueva_propiedad':form})
+    return render(request, 'agregar_propiedad.html', {'nueva_propiedad':form, 'mensaje_precio':mensaje_precio})
 
 def filtro_universidad(request, value):
     universidades=""

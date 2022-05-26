@@ -197,6 +197,7 @@ body {
     font-size: 40px;
     line-height: 60px;
 }
+
 .flexsearch--submit2 {
     position: absolute;
     right: 0;
@@ -214,7 +215,8 @@ body {
     font-size: 40px;
     line-height: 60px;
 }
-.flexsearch--submit2:hover{
+
+.flexsearch--submit2:hover {
     cursor: pointer;
 }
 
@@ -252,7 +254,7 @@ input:-moz-placeholder {
     text-align: center;
 }
 
-.tercer-contenedor{
+.tercer-contenedor {
     display: flex;
     justify-content: space-around;
     margin-top: 20px;
@@ -261,13 +263,15 @@ input:-moz-placeholder {
     margin-right: 60px;
     width: 100%;
 }
-.listado-filtros{
+
+.listado-filtros {
     width: 400px;
     padding-left: 10px;
     margin-bottom: 30px;
     margin-right: 20px;
 }
-.listado-filtros a{
+
+.listado-filtros a {
     text-decoration: none;
     display: block;
     color: #595959;
@@ -275,13 +279,15 @@ input:-moz-placeholder {
     margin-top: 4px;
     margin-bottom: 4px;
 }
-.listado-propiedades{
+
+.listado-propiedades {
     margin-top: 0;
     margin-bottom: 30px;
     margin-left: 30px;
     margin-right: 30px;
     width: 100%;
 }
+
 .depto {
     border-radius: 20px;
     background-color: #fff;
@@ -298,7 +304,8 @@ input:-moz-placeholder {
     width: 100%;
     margin-right: 15px;
 }
-.dep-1 img{
+
+.dep-1 img {
     width: 100%;
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
@@ -322,7 +329,7 @@ input:-moz-placeholder {
     overflow-y: scroll;
 }
 
-.dep-23{
+.dep-23 {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -357,7 +364,7 @@ input:-moz-placeholder {
     margin-right: -5px;
     position: relative;
     top: -150px;
-    
+
 
 }
 
@@ -382,10 +389,12 @@ input:-moz-placeholder {
     display: flex;
     justify-content: flex-start;
 }
-.accesorios figure{
+
+.accesorios figure {
     margin: 0 10px 0 0;
 }
-.accesorios figure img{
+
+.accesorios figure img {
     width: 25px;
 }
 
@@ -395,53 +404,59 @@ input:-moz-placeholder {
     width: 100px;
 }
 
-.puntuacion img{
+.puntuacion img {
     width: 40px;
     margin-right: 5px;
     height: 40px;
 }
 
-.sector-propiedad{
+.sector-propiedad {
     color: #6e6e6e;
-    font-family: Arial, Helvetica, sans-serif; 
+    font-family: Arial, Helvetica, sans-serif;
     margin-top: 10px;
     margin-bottom: 10px;
     overflow-y: scroll;
 }
-.direccion-propiedad{
+
+.direccion-propiedad {
     font-weight: bolder;
     font-size: 45px;
     margin: 8px 0;
 }
-.precio-arriendo{
+
+.precio-arriendo {
     margin: 8px 0;
     font-weight: bolder;
     font-size: 30px;
-    font-family: Arial, Helvetica, sans-serif; 
+    font-family: Arial, Helvetica, sans-serif;
 }
-.caracteristicas-extras{
+
+.caracteristicas-extras {
     color: #6e6e6e;
-    font-family: Arial, Helvetica, sans-serif; 
+    font-family: Arial, Helvetica, sans-serif;
 }
-.calificacion-num{
+
+.calificacion-num {
     margin-right: 10px;
-    font-family: Arial, Helvetica, sans-serif; 
+    font-family: Arial, Helvetica, sans-serif;
     font-weight: 600;
     align-self: center;
 }
 
 /* Filtros laterales*/
 
-.titulo-filtro{
+.titulo-filtro {
     font-size: 25px;
     font-family: Arial, Helvetica, sans-serif;
     margin-top: 20px;
     margin-bottom: 20px;
 }
 
-.titulo-caracteristica-filtro{
+.titulo-caracteristica-filtro {
     font-size: 20px;
     font-family: Arial, Helvetica, sans-serif;
     margin-top: 6px;
     margin-bottom: 6px;
 }
+
+/* ESTILOS ALERTA  */

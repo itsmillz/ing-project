@@ -2,6 +2,11 @@ from email.policy import default
 from random import choices
 from django.db import models
 from multiselectfield import MultiSelectField
+from django.core.validators import RegexValidator
+from django.core.exceptions import ValidationError
+from django.utils.translation import gettext_lazy as _
+
+alphanumeric = RegexValidator(r'^[0-9a-zA-Z]*$', 'Solo están permitidos carácteres alfanuméricos.')
 
 UNIVERSIDADES = (
     ('Universidad del Bio Bio', 'Universidad del Bio Bio'),
@@ -40,7 +45,7 @@ class Propiedad(models.Model):
     universidades_cercanas = MultiSelectField(choices=UNIVERSIDADES, default=None)
     sector_propiedad = models.CharField(max_length=50)
     direccion = models.CharField(max_length=80, default=None)
-    precio_arriendo = models.IntegerField()
+    precio_arriendo = models.IntegerField(blank=True, null=True, validators= [alphanumeric])
     tipo_propiedad = models.CharField(choices=TIPO_PROPIEDAD, default=None, max_length=20)
     cantidad_banos = models.IntegerField(default=None)
     cantidad_habitaciones = models.IntegerField(default=None)
@@ -50,7 +55,7 @@ class Propiedad(models.Model):
     gastos_comunes = models.IntegerField(default=None)
     servicio_aseo = models.BooleanField(default=None)
     propietario = models.ManyToManyField(Propietario)
-    imagen = models.ImageField(upload_to="fotos", null=True)
+    imagen = models.ImageField(upload_to="fotos_propiedad", null=True)
     def __str__(self):
         return self.tipo_propiedad
 
